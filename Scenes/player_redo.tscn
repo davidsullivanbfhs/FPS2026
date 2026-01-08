@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs7expoty8goo"]
+
+[ext_resource type="Script" path="res://Scripts/player_redo.gd" id="1_ibni3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ehyj3"]
+
+[node name="PlayerRedo" type="CharacterBody3D"]
+script = ExtResource("1_ibni3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_ehyj3")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+size = Vector3(0.3, 2, 0.3)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.35)
+size = Vector3(0.3, 0.1, 1)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bdhuctsoy8tl5"]
 
-[ext_resource type="PackedScene" uid="uid://b1awsk6vk15sx" path="res://player.tscn" id="1_8o8d4"]
+[ext_resource type="PackedScene" uid="uid://b1awsk6vk15sx" path="res://Scenes/player.tscn" id="1_4ultx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isa06"]
 albedo_color = Color(0.276, 0.46, 0, 1)
@@ -13,33 +13,41 @@ sky_material = SubResource("ProceduralSkyMaterial_ybwej")
 [sub_resource type="Environment" id="Environment_ol4i2"]
 background_mode = 2
 sky = SubResource("Sky_ntj7c")
+ambient_light_color = Color(0.335562, 0.285408, 0.6045, 1)
+fog_enabled = true
+fog_light_color = Color(0.2736, 0.42984, 0.72, 1)
+fog_height_density = 0.4051
 
 [node name="World" type="Node3D"]
 
 [node name="Platform1" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.25, 0)
+use_collision = true
 size = Vector3(1, 0.5, 1)
 material = SubResource("StandardMaterial3D_isa06")
 
 [node name="Platform2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+use_collision = true
 size = Vector3(1, 0.5, 1)
 material = SubResource("StandardMaterial3D_isa06")
 
 [node name="Platform3" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.25, -2)
+use_collision = true
 size = Vector3(1, 0.5, 1)
 material = SubResource("StandardMaterial3D_isa06")
 
 [node name="Platform4" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -5)
+use_collision = true
 size = Vector3(1, 0.5, 1)
 material = SubResource("StandardMaterial3D_isa06")
 
-[node name="Player" parent="." instance=ExtResource("1_8o8d4")]
+[node name="Player" parent="." instance=ExtResource("1_4ultx")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.866025, 0, -0.5, 0.25, 0.866025, 0.433013, 0.433013, -0.5, 0.75, 0, 2, 0)
+transform = Transform3D(0.918559, -0.353553, 0.176777, 0.25, 0.866025, 0.433013, -0.306186, -0.353554, 0.883883, 0, 4, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ol4i2")
