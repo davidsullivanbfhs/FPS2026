@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	#make 2d vector into 3d vector
 	var input_direction_3D = Vector3(input_direction_2D.x, 0, input_direction_2D.y)
 	
-	
+	# the basis is the players current rotation which is changed by mouse movement
 	var direction = transform.basis * input_direction_3D
 	velocity.x = direction.x * SPEED
 	velocity.z = direction.z * SPEED
