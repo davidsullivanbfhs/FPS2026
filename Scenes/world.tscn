@@ -32,7 +32,6 @@ fog_height_density = 0.4051
 
 [node name="Platform1" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -5.5, 12)
-layers = 524288
 use_collision = true
 size = Vector3(10, 11, 10)
 material = SubResource("StandardMaterial3D_isa06")

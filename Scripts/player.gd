@@ -4,7 +4,16 @@ extends CharacterBody3D
 #constrain the mouse
 #jump
 #capture the mouse
+### figure out why jumps has two 0s
+@export var gravity:float = 20
+@export var max_jumps:int = 2
+var jumps: int = 0
 
+func _ready() -> void:
+	#capture the mouse
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		#rotate player
@@ -25,8 +34,21 @@ func _physics_process(delta: float) -> void:
 	var direction = transform.basis * input_direction_3D
 	velocity.x = direction.x * SPEED
 	velocity.z = direction.z * SPEED
-	#jumping
+	### jumping ###
 	#gravity
 	#y direction
+	velocity.y -= gravity * delta
+	# check for the jump key
+	if Input.is_action_just_pressed("jump") and jumps < max_jumps:#is_on_floor():
+		velocity.y = 10.0
+		# add to jumps
+		print(jumps)
+		jumps += 1
+		
+	elif Input.is_action_just_released("jump") and velocity.y > 0.0:
+		velocity.y = 0.0
+	
+	if is_on_floor():
+		jumps = 0
 	
 	move_and_slide()
