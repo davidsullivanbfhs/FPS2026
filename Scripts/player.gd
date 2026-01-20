@@ -9,6 +9,9 @@ extends CharacterBody3D
 @export var max_jumps:int = 2
 var jumps: int = 0
 
+#shooting
+
+
 func _ready() -> void:
 	#capture the mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -22,6 +25,19 @@ func _unhandled_input(event: InputEvent) -> void:
 		%Camera3D.rotation_degrees.x -= event.screen_relative.y * 0.2
 		%Camera3D.rotation_degrees.x = clamp(%Camera3D.rotation_degrees.x, -80.0, 80.0)
 
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("quit"):
+		get_tree().quit()
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
+	if Input.is_action_just_pressed("fullscreen"):
+		#bool true or false
+		var fs = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
+		if fs: 
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _physics_process(delta: float) -> void:
 	const SPEED = 5.5 # meters per second
@@ -42,13 +58,16 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and jumps < max_jumps:#is_on_floor():
 		velocity.y = 10.0
 		# add to jumps
-		print(jumps)
+		print("start = ", jumps)
 		jumps += 1
+		print("end = ", jumps)
+		# jumps is being zeroed out after the first time it is triggered
 		
 	elif Input.is_action_just_released("jump") and velocity.y > 0.0:
 		velocity.y = 0.0
 	
 	if is_on_floor():
+		print("zero jumps")
 		jumps = 0
 	
 	move_and_slide()
