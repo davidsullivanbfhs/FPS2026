@@ -1,11 +1,114 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1awsk6vk15sx"]
+[gd_scene load_steps=27 format=3 uid="uid://b1awsk6vk15sx"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_o8as2"]
 [ext_resource type="PackedScene" uid="uid://05lkv55tfgjw" path="res://Assets/Models/gun_model.glb" id="2_sm74q"]
-[ext_resource type="PackedScene" uid="uid://rqf2cn7yxexa" path="res://Scenes/projectile.tscn" id="3_7iljp"]
+[ext_resource type="PackedScene" uid="uid://rqf2cn7yxexa" path="res://Scenes/projectile.tscn" id="3_rm5jg"]
 [ext_resource type="Texture2D" uid="uid://brqc5p3w3e8aa" path="res://Assets/Textures/reticle.png" id="3_u7538"]
+[ext_resource type="Texture2D" uid="uid://cqh3fxr5p55pe" path="res://Assets/Textures/circle_03.png" id="4_c86at"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_da63s"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4l2s1"]
+direction = Vector3(0, 0, 1)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.2
+turbulence_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_fiehl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mw17d"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="Curve" id="Curve_crpg4"]
+_data = [Vector2(0.00991735, 0.0177604), 0.0, 9.63931, 0, 0, Vector2(0.208264, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_kipic"]
+curve = SubResource("Curve_crpg4")
+
+[sub_resource type="Gradient" id="Gradient_y3oqt"]
+offsets = PackedFloat32Array(0, 0.995272)
+colors = PackedColorArray(1, 0.810167, 0.33, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_12gpl"]
+gradient = SubResource("Gradient_y3oqt")
+
+[sub_resource type="Curve" id="Curve_cscmf"]
+max_value = 10.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 10), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ds6yr"]
+curve = SubResource("Curve_cscmf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h8nsy"]
+emission_shape_offset = Vector3(0, 0.185, 0)
+emission_shape_scale = Vector3(10, 10, 10)
+angle_min = -71.7
+angle_max = 84.3
+direction = Vector3(0, 0, 1)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.01
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_ds6yr")
+color_ramp = SubResource("GradientTexture1D_12gpl")
+alpha_curve = SubResource("CurveTexture_kipic")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_a0x5b"]
+top_radius = 0.0
+bottom_radius = 0.2
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxbge"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_c86at")
+albedo_texture_force_srgb = true
+billboard_keep_scale = true
+
+[sub_resource type="Curve" id="Curve_xcktk"]
+_data = [Vector2(0, 0.00602043), 0.0, 11.8378, 0, 0, Vector2(0.133884, 1), 0.0, 0.0, 0, 0, Vector2(0.424793, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_wis66"]
+curve = SubResource("Curve_xcktk")
+
+[sub_resource type="Gradient" id="Gradient_26k4u"]
+colors = PackedColorArray(0, 1, 0.916667, 1, 0, 0.116667, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b4e10"]
+gradient = SubResource("Gradient_26k4u")
+
+[sub_resource type="Curve" id="Curve_6qrye"]
+max_value = 10.0
+_data = [Vector2(0, 0), 0.0, 0.196118, 0, 0, Vector2(0.221488, 1.46899), 0.0, 0.0, 0, 0, Vector2(0.350413, 4.09091), 0.0, 0.0, 0, 0, Vector2(1, 1.89946), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_nhyj1"]
+curve = SubResource("Curve_6qrye")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7aqck"]
+direction = Vector3(0, 0, 1)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_nhyj1")
+color_ramp = SubResource("GradientTexture1D_b4e10")
+alpha_curve = SubResource("CurveTexture_wis66")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mgorr"]
+flip_faces = true
+size = Vector2(1, 1)
+orientation = 2
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_o8as2")
@@ -26,12 +129,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.3, -0.7)
 transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0, 0)
 
 [node name="ProjectileSpawnPoint" type="Marker3D" parent="Camera3D/WeaponPlace/gun_model"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
 
-[node name="Projectile" parent="Camera3D/WeaponPlace/gun_model/ProjectileSpawnPoint" instance=ExtResource("3_7iljp")]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Camera3D/WeaponPlace/gun_model/ProjectileSpawnPoint"]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_4l2s1")
+draw_pass_1 = SubResource("SphereMesh_fiehl")
+
+[node name="Projectile" parent="Camera3D/WeaponPlace/gun_model/ProjectileSpawnPoint" instance=ExtResource("3_rm5jg")]
+visible = false
+
+[node name="ExplosionCOnes" type="GPUParticles3D" parent="Camera3D/WeaponPlace/gun_model/ProjectileSpawnPoint"]
+material_override = SubResource("StandardMaterial3D_mw17d")
+amount = 20
+explosiveness = 1.0
+randomness = 1.0
+transform_align = 2
+process_material = SubResource("ParticleProcessMaterial_h8nsy")
+draw_pass_1 = SubResource("CylinderMesh_a0x5b")
+
+[node name="2dTextureParticles" type="GPUParticles3D" parent="Camera3D/WeaponPlace/gun_model/ProjectileSpawnPoint"]
+material_override = SubResource("StandardMaterial3D_cxbge")
+amount = 2
+transform_align = 2
+process_material = SubResource("ParticleProcessMaterial_7aqck")
+draw_pass_1 = SubResource("PlaneMesh_mgorr")
 
 [node name="MuzzleLight" type="OmniLight3D" parent="Camera3D/WeaponPlace/gun_model"]
+unique_name_in_owner = true
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0.6)
+visible = false
 light_color = Color(1, 1, 0, 1)
 
 [node name="body" type="CSGBox3D" parent="."]
@@ -63,3 +191,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_u7538")
 expand_mode = 1
+
+[node name="BulletTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true

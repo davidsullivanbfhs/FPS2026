@@ -9,6 +9,7 @@ extends CharacterBody3D
 @export var max_jumps:int = 2
 var jumps: int = 0
 
+@export var muzzle_flash_time: float = 0.1
 #shooting
 
 
@@ -58,16 +59,34 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and jumps < max_jumps:#is_on_floor():
 		velocity.y = 10.0
 		# add to jumps
-		print("start = ", jumps)
+		#print("start = ", jumps)
 		jumps += 1
-		print("end = ", jumps)
+		#print("end = ", jumps)
 		# jumps is being zeroed out after the first time it is triggered
 		
 	elif Input.is_action_just_released("jump") and velocity.y > 0.0:
 		velocity.y = 0.0
 	
 	if is_on_floor():
-		print("zero jumps")
+		#print("zero jumps")
 		jumps = 0
 	
 	move_and_slide()
+	
+	if Input.is_action_pressed("shoot") and $BulletTimer.is_stopped():
+		shoot_bullet()
+	
+func shoot_bullet():
+	#get a reference projectile scene
+	const BULLET_3D = preload("res://Scenes/projectile.tscn")
+	# instantiate
+	var new_bullet = BULLET_3D.instantiate()
+	# add instance as a child
+	%ProjectileSpawnPoint.add_child(new_bullet)
+	# connect to spawn location
+	new_bullet.transform = %ProjectileSpawnPoint.global_transform
+	# play sounds , turn on light , particles?
+	$BulletTimer.start()
+	%MuzzleLight.visible = true
+	await  get_tree().create_timer(0.1).timeout
+	%MuzzleLight.visible = false
