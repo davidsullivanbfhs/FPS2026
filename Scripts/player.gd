@@ -11,7 +11,7 @@ var jumps: int = 0
 
 @export var muzzle_flash_time: float = 0.1
 #shooting
-
+@onready var animationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	#capture the mouse
@@ -77,6 +77,7 @@ func _physics_process(delta: float) -> void:
 		shoot_bullet()
 	
 func shoot_bullet():
+	animationPlayer.stop()
 	#get a reference projectile scene
 	const BULLET_3D = preload("res://Scenes/projectile.tscn")
 	# instantiate
@@ -87,6 +88,7 @@ func shoot_bullet():
 	new_bullet.transform = %ProjectileSpawnPoint.global_transform
 	# play sounds , turn on light , particles?
 	$BulletTimer.start()
-	%MuzzleLight.visible = true
-	await  get_tree().create_timer(0.1).timeout
-	%MuzzleLight.visible = false
+	#%MuzzleLight.visible = true
+	#await  get_tree().create_timer(0.1).timeout
+	#%MuzzleLight.visible = false
+	animationPlayer.play("MuzzleFlash")
