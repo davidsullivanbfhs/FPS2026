@@ -340,7 +340,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -352,7 +352,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -364,7 +364,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -441,7 +441,9 @@ draw_pass_1 = SubResource("CylinderMesh_a0x5b")
 
 [node name="2dTextureParticles" type="GPUParticles3D" parent="Camera3D/WeaponPlace/gun_model/ProjectileSpawnPoint"]
 material_override = SubResource("StandardMaterial3D_cxbge")
+emitting = false
 amount = 1
+lifetime = 0.2
 one_shot = true
 transform_align = 2
 process_material = SubResource("ParticleProcessMaterial_7aqck")
@@ -458,6 +460,7 @@ draw_pass_1 = SubResource("PlaneMesh_g0m4h")
 
 [node name="particleBillboardExample" type="GPUParticles3D" parent="Camera3D/WeaponPlace/gun_model/ProjectileSpawnPoint"]
 material_override = SubResource("StandardMaterial3D_jae6p")
+emitting = false
 amount = 80
 one_shot = true
 randomness = 1.0
@@ -468,6 +471,7 @@ draw_pass_1 = SubResource("PlaneMesh_1sege")
 [node name="MuzzleLight" type="OmniLight3D" parent="Camera3D/WeaponPlace/gun_model"]
 unique_name_in_owner = true
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0.6)
+visible = false
 light_color = Color(1, 1, 0, 1)
 
 [node name="body" type="CSGBox3D" parent="."]
