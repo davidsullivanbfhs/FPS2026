@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdhuctsoy8tl5"]
+[gd_scene load_steps=10 format=3 uid="uid://bdhuctsoy8tl5"]
 
 [ext_resource type="Texture2D" uid="uid://brmjpsd7bsfbp" path="res://Assets/Textures/grass.jpg" id="1_2jyld"]
 [ext_resource type="PackedScene" uid="uid://b1awsk6vk15sx" path="res://Scenes/player.tscn" id="1_4ultx"]
 [ext_resource type="Texture2D" uid="uid://b2gqmdbnvtbtw" path="res://Assets/Textures/checkboard.png" id="2_t6g8o"]
+[ext_resource type="PackedScene" uid="uid://bw4ylvqjmq73v" path="res://Scenes/mob.tscn" id="4_hwmyy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isa06"]
 albedo_color = Color(0.276, 0.46, 0, 1)
@@ -86,3 +87,6 @@ transform = Transform3D(0.918559, -0.353553, 0.176777, 0.25, 0.866025, 0.433013,
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ol4i2")
+
+[node name="Mob" parent="." instance=ExtResource("4_hwmyy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -1)
