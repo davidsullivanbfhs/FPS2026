@@ -1,16 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://bw4ylvqjmq73v"]
+[gd_scene load_steps=6 format=3 uid="uid://bw4ylvqjmq73v"]
 
 [ext_resource type="PackedScene" uid="uid://clmww0m2b8m1l" path="res://Scenes/bat_model_inherited.tscn" id="1_gv1hl"]
 [ext_resource type="Script" path="res://Scripts/mob.gd" id="1_phgbc"]
+[ext_resource type="AudioStream" uid="uid://xlod4oyqvbyo" path="res://Assets/Sounds/mob_ko.wav" id="3_dyxtk"]
+[ext_resource type="AudioStream" uid="uid://4l0td0atn1h5" path="res://Assets/Sounds/mob_take_damage.wav" id="4_xryh2"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hdkkj"]
 radius = 0.3
 
 [node name="Mob" type="RigidBody3D"]
 gravity_scale = 0.0
+lock_rotation = true
 script = ExtResource("1_phgbc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_hdkkj")
 
 [node name="bat_model_inherited" parent="." instance=ExtResource("1_gv1hl")]
+
+[node name="DeleteMobTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[node name="KOSound" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_dyxtk")
+
+[node name="HitSound" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_xryh2")
+
+[connection signal="timeout" from="DeleteMobTimer" to="." method="_on_delete_mob_timer_timeout"]

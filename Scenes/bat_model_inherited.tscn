@@ -160,19 +160,19 @@ node_connections = [&"OneShot", 0, &"Idle", &"OneShot", 1, &"Hurt", &"output", 0
 script = ExtResource("2_82l76")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(0, -0.0236, 0)
-bones/1/rotation = Quaternion(-0.0205283, 0.167448, -0.637636, 0.751639)
-bones/2/rotation = Quaternion(-0.180566, -0.054197, 0.282572, 0.940538)
-bones/3/rotation = Quaternion(-0.187928, 0.00584339, 0.215716, 0.958183)
-bones/4/rotation = Quaternion(-0.0205283, -0.167448, 0.637636, 0.751639)
-bones/5/rotation = Quaternion(-0.180566, 0.054197, -0.282572, 0.940538)
-bones/6/rotation = Quaternion(-0.187928, -0.00584339, -0.215716, 0.958183)
+bones/0/position = Vector3(0, -0.0234639, 0)
+bones/1/rotation = Quaternion(-0.00943727, 0.156471, -0.633471, 0.757722)
+bones/2/rotation = Quaternion(-0.175643, -0.0541736, 0.289837, 0.93926)
+bones/3/rotation = Quaternion(-0.197824, 0.00325333, 0.217817, 0.955725)
+bones/4/rotation = Quaternion(-0.00943727, -0.156471, 0.633471, 0.757722)
+bones/5/rotation = Quaternion(-0.175643, 0.0541736, -0.289837, 0.93926)
+bones/6/rotation = Quaternion(-0.197824, -0.00325333, -0.217817, 0.955725)
 bones/7/position = Vector3(0.130992, -0.227392, -0.0878515)
 bones/7/rotation = Quaternion(0.261968, 0.0834551, 0.265751, 0.924004)
-bones/8/rotation = Quaternion(3.32876e-08, 0.584599, 0.811323, 1.96246e-08)
+bones/8/rotation = Quaternion(3.27884e-08, 0.575717, 0.817649, 1.92647e-08)
 bones/10/position = Vector3(-0.130992, -0.227392, -0.0878515)
 bones/10/rotation = Quaternion(0.261968, -0.0834551, -0.265751, 0.924004)
-bones/11/rotation = Quaternion(2.98697e-08, 0.584599, 0.811323, 4.80849e-08)
+bones/11/rotation = Quaternion(2.6257e-08, 0.575717, 0.817649, 4.81206e-08)
 
 [node name="bat" parent="Armature/Skeleton3D" index="0"]
 material_overlay = SubResource("StandardMaterial3D_un1vs")
@@ -186,6 +186,7 @@ autoplay = "Idle"
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 unique_name_in_owner = true
+root_node = NodePath("%AnimationTree/..")
 tree_root = SubResource("AnimationNodeBlendTree_uyb1j")
 anim_player = NodePath("../AnimationPlayer")
 parameters/OneShot/active = false
