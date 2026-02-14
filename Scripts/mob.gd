@@ -1,5 +1,11 @@
 extends RigidBody3D
 
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# the mobs will share the material resource, so the material overlay 
+# in the bat node of the bat model heirarchy scene needs to be set to
+# local to scene under resource
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 # a signal to tell the main scene when a mob has died
 signal died
 # 

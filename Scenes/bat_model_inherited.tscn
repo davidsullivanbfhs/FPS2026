@@ -5,6 +5,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://vrpxeb7h053s" path="res://AnimationLibraries/custom.res" id="3_0r5f5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_un1vs"]
+resource_local_to_scene = true
 transparency = 1
 albedo_color = Color(1, 0, 0, 0)
 
@@ -160,19 +161,19 @@ node_connections = [&"OneShot", 0, &"Idle", &"OneShot", 1, &"Hurt", &"output", 0
 script = ExtResource("2_82l76")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(0, -0.0234639, 0)
-bones/1/rotation = Quaternion(-0.00943727, 0.156471, -0.633471, 0.757722)
-bones/2/rotation = Quaternion(-0.175643, -0.0541736, 0.289837, 0.93926)
-bones/3/rotation = Quaternion(-0.197824, 0.00325333, 0.217817, 0.955725)
-bones/4/rotation = Quaternion(-0.00943727, -0.156471, 0.633471, 0.757722)
-bones/5/rotation = Quaternion(-0.175643, 0.0541736, -0.289837, 0.93926)
-bones/6/rotation = Quaternion(-0.197824, -0.00325333, -0.217817, 0.955725)
+bones/0/position = Vector3(0, 0.0236, 0)
+bones/1/rotation = Quaternion(0.1696, 0.00421777, -0.646475, 0.743833)
+bones/2/rotation = Quaternion(0.173565, 0.0744145, 0.386717, 0.902656)
+bones/3/rotation = Quaternion(0.151603, 0.109804, 0.358186, 0.914693)
+bones/4/rotation = Quaternion(0.1696, -0.00421777, 0.646475, 0.743833)
+bones/5/rotation = Quaternion(0.173565, -0.0744145, -0.386717, 0.902656)
+bones/6/rotation = Quaternion(0.151603, -0.109804, -0.358186, 0.914693)
 bones/7/position = Vector3(0.130992, -0.227392, -0.0878515)
-bones/7/rotation = Quaternion(0.261968, 0.0834551, 0.265751, 0.924004)
-bones/8/rotation = Quaternion(3.27884e-08, 0.575717, 0.817649, 1.92647e-08)
+bones/7/rotation = Quaternion(0.261968, 0.0834552, 0.265751, 0.924005)
+bones/8/rotation = Quaternion(3.72308e-08, 0.664907, 0.746927, 2.23946e-08)
 bones/10/position = Vector3(-0.130992, -0.227392, -0.0878515)
-bones/10/rotation = Quaternion(0.261968, -0.0834551, -0.265751, 0.924004)
-bones/11/rotation = Quaternion(2.6257e-08, 0.575717, 0.817649, 4.81206e-08)
+bones/10/rotation = Quaternion(0.261968, -0.0834552, -0.265751, 0.924005)
+bones/11/rotation = Quaternion(2.25769e-08, 0.664907, 0.746926, 4.21451e-08)
 
 [node name="bat" parent="Armature/Skeleton3D" index="0"]
 material_overlay = SubResource("StandardMaterial3D_un1vs")

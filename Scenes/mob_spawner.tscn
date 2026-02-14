@@ -8,6 +8,8 @@ script = ExtResource("1_i4m0t")
 
 [node name="MobTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+wait_time = 2.0
+autostart = true
 
 [node name="MobSpawnLocation" type="Marker3D" parent="."]
 unique_name_in_owner = true
