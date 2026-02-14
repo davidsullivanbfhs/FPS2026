@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://i0m6qehj3l4i"
+path="res://.godot/imported/smoke_sphere.obj-41f0872f47a6006427613e8d44626ef7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/smoke_sphere.obj-41f0872f47a6006427613e8d44626ef7.mesh"]
+
+source_file="res://Assets/Poof/material/smoke_sphere.obj"
+dest_files=["res://.godot/imported/smoke_sphere.obj-41f0872f47a6006427613e8d44626ef7.mesh", "res://.godot/imported/smoke_sphere.obj-41f0872f47a6006427613e8d44626ef7.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
