@@ -129,3 +129,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape3D_e0kos")
+
+[connection signal="mob_spawned" from="MobSpawner" to="." method="_on_mob_spawner_3d_mob_spawned"]
+[connection signal="body_entered" from="Killzone" to="." method="_on_kill_plane_body_entered"]
