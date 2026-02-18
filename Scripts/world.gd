@@ -1,6 +1,6 @@
 extends Node3D
 
-
+# TODO: fix the pooks on mob spawn and death
 # Project Settings...
 # General tab/DisplayWindow section, the Viewport Width = 1920, Viewport Height = 1080. 
 # StretchMode = "viewport"
@@ -19,7 +19,7 @@ func do_poof(mob_position):
 	var poof := SMOKE_PUFF.instantiate()
 	add_child(poof)
 	poof.global_position = mob_position
-	print("ppof")
+	#print("ppof")
 
 
 # when the mob is born we need to connect the signal to the game level
@@ -31,6 +31,7 @@ func _on_mob_spawner_3d_mob_spawned(mob):
 	mob.died.connect(func on_mob_died():
 		increase_score()
 		do_poof(mob.global_position)
+		print(mob.global_position)
 	)
 	# do the poof when the mob is spawned
 	do_poof(mob.global_position)

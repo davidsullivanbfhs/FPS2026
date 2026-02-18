@@ -105,6 +105,10 @@ environment = SubResource("Environment_ol4i2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
 mob_to_spawn = ExtResource("4_hwmyy")
 
+[node name="MobSpawner2" parent="." instance=ExtResource("4_bsofg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -2)
+mob_to_spawn = ExtResource("4_hwmyy")
+
 [node name="UI" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -131,4 +135,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, 0)
 shape = SubResource("WorldBoundaryShape3D_e0kos")
 
 [connection signal="mob_spawned" from="MobSpawner" to="." method="_on_mob_spawner_3d_mob_spawned"]
+[connection signal="mob_spawned" from="MobSpawner2" to="." method="_on_mob_spawner_3d_mob_spawned"]
 [connection signal="body_entered" from="Killzone" to="." method="_on_kill_plane_body_entered"]
